@@ -7,7 +7,7 @@ import PyRSS2Gen
 from bs4 import BeautifulSoup
 from bottle import route, run, response, default_app
 
-@route('/')
+@route('/feed')
 def index():
     resp = requests.get('http://mdcourts.gov/cgi-bin/indexlist.pl',
                         params={'court': 'both', 'year': 'all',
