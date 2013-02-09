@@ -24,10 +24,16 @@ def index():
             PyRSS2Gen.RSSItem(
                 title = tds[4].text,
                 link = row.td.find_all('a')[1]['href'],
-                description = '{0} - {1}'.format(
-                    tds[3].text,
-                    tds[4].text,
-                    ),
+                description = """\
+                        docket/term: {}<br>
+                        citation: {}<br>
+                        judge: {}<br>
+                        Parties: {}""".format(
+                            tds[0].text,
+                            tds[1].text,
+                            tds[3].text,
+                            tds[4].text,
+                            ),
                 guid = PyRSS2Gen.Guid(tds[0].a['href']),
                 pubDate = datetime.datetime.strptime(
                     tds[2].text.strip(), '%Y-%m-%d')
