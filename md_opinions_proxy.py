@@ -25,11 +25,13 @@ def index():
                 title = tds[4].text,
                 link = row.td.find_all('a')[1]['href'],
                 description = """\
-                        docket/term: {}<br>
-                        citation: {}<br>
-                        judge: {}<br>
-                        Parties: {}""".format(
+                        docket/term: {0}<br>
+                        date: {1}<br>
+                        citation: {2}<br>
+                        judge: {3}<br>
+                        Parties: {4}""".format(
                             tds[0].text,
+                            tds[2].text,
                             tds[1].text,
                             tds[3].text,
                             tds[4].text,
